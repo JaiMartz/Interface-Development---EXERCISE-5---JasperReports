@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="531933c1-a65d-48ea-a5f5-76da034bc1f1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.chart.pie.ignore.duplicated.key" value="true"/>
+	<field name="DNI" class="java.lang.String"/>
+	<field name="Modulo" class="java.lang.String"/>
+	<field name="Nota" class="java.lang.String"/>
+	<field name="Recuperacion" class="java.lang.String"/>
+	<sortField name="Modulo"/>
+	<group name="Asignaturas">
+		<groupExpression><![CDATA[$F{Modulo}]]></groupExpression>
+	</group>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="15" width="555" height="48" forecolor="#FFFFFF" backcolor="#00CCFF" uuid="37e3b953-c536-4167-894d-d5c2f44b86ef"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gráfico Modulos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="351" splitType="Stretch">
+			<pie3DChart>
+				<chart>
+					<reportElement x="0" y="0" width="555" height="351" uuid="cfdba1ae-be48-4fb3-b5ae-e3bb39c58d5c"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{Modulo}]]></keyExpression>
+					<valueExpression><![CDATA[$V{Asignaturas_COUNT}]]></valueExpression>
+					<labelExpression><![CDATA[$V{Asignaturas_COUNT}+" "]]></labelExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</summary>
+</jasperReport>
